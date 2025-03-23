@@ -81,3 +81,36 @@
     font-size: 1.5rem;
     color: inherit;
 }
+
+@media (max-width: 768px) {
+    .sct-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sct-side-left,
+    .sct-side-right {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .sct-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sct-label {
+        width: auto;
+        margin-bottom: 0.25rem;
+    }
+
+    .sct-values,
+    .sct-links {
+        align-items: center;
+    }
+
+    .sct-links {
+        justify-content: center;
+    }
+}
