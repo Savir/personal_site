@@ -1,38 +1,44 @@
-.App {
-  text-align: center;
+/* Tab navigation container */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navigation links */
+.tab-link {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    margin: 0 15px;
+    transition: color 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Active tab styling */
+.tab-link.active-tab {
+    color: #007bff;
+    font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Underline effect for active tab */
+.tab-link.active-tab::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background: #007bff;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Hover effect */
+.tab-link:hover {
+    color: #0056b3;
 }

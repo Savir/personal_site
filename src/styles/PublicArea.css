@@ -1,0 +1,112 @@
+.typing-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.big-word {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: monospace;
+    color: #00ff00; /* Terminal-style green */
+    text-align: center;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    background-color: #00ff00;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.completed-words {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.small-word {
+    font-size: 1.2rem;
+    margin: 5px;
+    display: inline-block;
+    opacity: 0;
+    animation: moveDown 0.6s ease-in-out forwards;
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(-20px) scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+.final-message {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00ff00;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.bio-section {
+  margin: 2rem auto;
+  line-height: 1.6;
+  font-size: 1rem;
+  max-width: 800px;
+  text-align: justify;     /* Justifies the paragraph text */
+}
+.bio-section p {
+  margin-bottom: 1rem;
+}
+.bio-section-wrapper {
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  position: relative;
+}
+
+.bio-section-wrapper.collapsed {
+  max-height: 6em;
+}
+
+.bio-section-wrapper.expanded {
+  max-height: 5000px; /* Large enough to show all content */
+}
+
+.bio-section-wrapper.collapsed::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3em;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(249, 249, 249, 0), #f9f9f9);
+}
+
+.bio-section.collapsed::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3em;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(249, 249, 249, 0), #f9f9f9);
+}

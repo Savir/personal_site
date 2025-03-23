@@ -1,0 +1,236 @@
+/* General container for the secure content */
+.secure-block {
+  padding: 1rem;
+  font-family: sans-serif;
+  background-color: #fff;
+  color: #111;
+}
+
+/* Main title (e.g., name) */
+.secure-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Meta information (dates, job periods, etc.) */
+.secure-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* Each section (company entry) */
+.secure-section {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+/* Header row: logo or initial, and company name */
+.secure-header-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+/* Ensures content aligns properly under the company name */
+.secure-header-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0.75rem; /* Creates space between logo and text */
+}
+
+/* Personal Area (Header) */
+.secure-personal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Left Section: Picture + Name + Location */
+.secure-personal-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers everything inside */
+  text-align: center;
+  justify-content: center;
+}
+/* Profile Picture */
+.secure-profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+/* Name */
+.secure-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+/* Subtitle */
+.secure-subtitle {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+/* Location */
+.secure-location {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Right Section: Contact */
+.secure-personal-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Email & Phone Rows */
+.secure-contact-row {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+/* Phone Numbers with Flags */
+.secure-phone {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Social Links */
+.secure-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.secure-link {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #1565C0;
+  font-weight: bold;
+}
+
+/* Square badge (either logo or company initial) */
+.secure-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #ccc;
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Link next to the company name */
+.secure-link {
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
+
+/* Summary text (company description) */
+.secure-summary {
+  margin-top: 0.2rem;
+  align-self: flex-start;
+}
+
+/* Job title styling */
+.secure-subtitle {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+/* Date range for job titles */
+.secure-range {
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+  align-self: flex-start;
+}
+
+/* Skills section (list of rounded tags) */
+.secure-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+/* Skill tags (blue rounded pills) */
+.secure-tag {
+  background-color: #E3F2FD;
+  color: #1565C0;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Ensures the accordion stays aligned with the company details */
+.secure-accordion {
+  align-self: flex-start;
+  width: 100%;  /* Ensures it stretches properly */
+}
+
+/* Accordion header (clickable title) */
+.secure-accordion-header {
+  cursor: pointer;
+  color: #3366cc;
+  font-weight: bold;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Ensures spacing is consistent */
+}
+
+/* Ensures the icon width remains the same when toggled */
+.secure-accordion-header::before {
+  content: "►";
+  display: inline-block;
+  width: 1rem; /* Fixed width to prevent shifting */
+  transition: transform 0.2s ease-in-out;
+}
+
+/* When expanded, update the icon */
+.secure-accordion-header.open::before {
+  content: "▼";
+}
+
+/* Accordion content (when expanded) */
+.secure-accordion-content {
+  margin-top: 0.25rem;
+  text-align: left;  /* Ensures bullet points are aligned */
+  width: 100%;  /* Prevents it from collapsing to a smaller width */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Bullet points inside the accordion */
+.secure-list {
+  padding-left: 1.2rem;
+  text-align: left;
+  width: 100%;
+}

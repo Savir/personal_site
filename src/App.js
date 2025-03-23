@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import PublicArea from "./components/PublicArea";
+import PrivateArea from "./components/PrivateArea";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const tabs = [
+    {id: "public", label: "Public"},
+    {id: "private", label: "Private"}
+];
+
+const App = () => {
+    const [activeTab, setActiveTab] = useState("public");
+
+    const handleTabClick = (event, tabId) => {
+        event.preventDefault(); // Prevents full page reload
+        setActiveTab(tabId);
+    };
+
+    return (
+        <div className="protected-container">
+            {/* Navigation Menu */}
+            <nav className="tab-container">
+                {tabs.map((tab) => (
+                    <a
+                        key={tab.id}
+                        href="#"
+                        className={`tab-link ${activeTab === tab.id ? "active-tab" : ""}`}
+                        onClick={(event) => handleTabClick(event, tab.id)}
+                    >
+                        {tab.label}
+                    </a>
+                ))}
+            </nav>
+
+            {activeTab === "public" && <PublicArea/>}
+            {activeTab === "private" && <PrivateArea/>}
+        </div>
+    );
+};
 
 export default App;
