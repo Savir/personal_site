@@ -5,6 +5,7 @@
 .python-version
 .idea/
 logos/
+backups/
 
 # dependencies
 /node_modules

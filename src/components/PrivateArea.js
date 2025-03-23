@@ -1,4 +1,6 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
+import * as Babel from '@babel/standalone';
+
 import {decryptContent} from "../utils/decryptor";
 import encryptedContent from "../encryptedContent";
 import "../styles/AreaStyles.css"; // Import the unified styles
@@ -9,6 +11,7 @@ const PrivateArea = () => {
     const [hasAccess, setHasAccess] = useState(false);
     const [decryptedComponent, setDecryptedComponent] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
+    const inputRef = useRef(null);
 
     // Function to update the URL in real time
     const updateURL = (key) => {
@@ -44,6 +47,12 @@ const PrivateArea = () => {
         }
     }, [handleDecrypt]);
 
+    useEffect(() => {
+        if (!hasAccess && inputRef.current) {
+            inputRef.current.focus();
+        }
+    }, [hasAccess]);
+
     const handleInputChange = (e) => {
         // Handle input change and update URL in real-time
         const newKey = e.target.value;
@@ -60,11 +69,14 @@ const PrivateArea = () => {
 
     const evaluateJSX = (jsxCode) => {
         try {
-            return new Function("React", `"use strict"; return (${jsxCode})`)(React);
+            const compiledCode = Babel.transform(jsxCode, {
+                presets: [Babel.availablePresets['react']]
+            }).code;
+
+            return new Function("React", `${compiledCode}; return SecureComponent;`)(React);
         } catch (error) {
-            console.error("Error evaluating JSX:", error);
-            setErrorMessage("❌ Decryption succeeded, but content is invalid.");
-            return null;
+            console.error("Error compiling JSX:", error);
+            throw new Error("❌ JSX Compilation failed.");
         }
     };
 
@@ -87,6 +99,7 @@ const PrivateArea = () => {
                         onKeyDown={handleKeyPress}
                         className="input-field"
                         placeholder="Enter secret key..."
+                        ref={inputRef}
                     />
                     <button onClick={() => handleDecrypt(secretKey)} className="primary-button">
                         Submit

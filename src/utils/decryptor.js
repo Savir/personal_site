@@ -6,9 +6,12 @@ const hexToUint8Array = (hex) => {
     return bytes;
 };
 
-export const decryptContent = async (encryptedText, key) => {
+export const decryptContent = async (fullBlob, key) => {
     try {
-        const rawData = hexToUint8Array(encryptedText);
+        const sigLength = 64; // SHA-256 in hex
+        const encryptedHex = fullBlob.slice(0, -sigLength);
+        const expectedHash = fullBlob.slice(-sigLength);
+        const rawData = hexToUint8Array(encryptedHex);
         const nonce = rawData.slice(0, 16);
         const encryptedBytes = rawData.slice(16, rawData.length - 16);
         const tag = rawData.slice(rawData.length - 16);
@@ -27,10 +30,21 @@ export const decryptContent = async (encryptedText, key) => {
             new Uint8Array([...encryptedBytes, ...tag])
         );
 
-        return new TextDecoder().decode(decrypted); // Return decrypted text
+        const decryptedText = new TextDecoder().decode(decrypted);
+
+        // ✅ Verify SHA-256
+        const hashBuffer = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(decryptedText));
+        const actualHash = Array.from(new Uint8Array(hashBuffer))
+            .map(b => b.toString(16).padStart(2, "0"))
+            .join("");
+
+        if (actualHash !== expectedHash) {
+            throw new Error("Integrity check failed: SHA-256 mismatch.");
+        }
+
+        return decryptedText;
     } catch (error) {
         console.error("❌ Decryption Failed:", error);
-        throw new Error("Decryption failed: Incorrect key or corrupted data"); // Throw an error instead of handling state
+        throw new Error("Decryption failed: Incorrect key or corrupted data");
     }
 };
-
