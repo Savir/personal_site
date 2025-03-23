@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/personal_site/static/css/main.853b306e.css",
+    "main.js": "/personal_site/static/js/main.5be0277a.js",
+    "static/js/453.842c7982.chunk.js": "/personal_site/static/js/453.842c7982.chunk.js",
+    "static/media/ProFontWindowsNerdFontMono-Regular.ttf": "/personal_site/static/media/ProFontWindowsNerdFontMono-Regular.897234fe009bd259db8b.ttf",
+    "index.html": "/personal_site/index.html",
+    "main.853b306e.css.map": "/personal_site/static/css/main.853b306e.css.map",
+    "main.5be0277a.js.map": "/personal_site/static/js/main.5be0277a.js.map",
+    "453.842c7982.chunk.js.map": "/personal_site/static/js/453.842c7982.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.853b306e.css",
+    "static/js/main.5be0277a.js"
+  ]
+}
