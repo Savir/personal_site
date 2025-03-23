@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/personal_site/static/css/main.45741d0a.css",
+    "main.css": "/personal_site/static/css/main.cebd7bea.css",
     "main.js": "/personal_site/static/js/main.b21dcb57.js",
     "static/js/453.96cba20d.chunk.js": "/personal_site/static/js/453.96cba20d.chunk.js",
     "static/media/UbuntuNerdFont-Regular.ttf": "/personal_site/static/media/UbuntuNerdFont-Regular.6284e59f7176b20d9eee.ttf",
     "index.html": "/personal_site/index.html",
-    "main.45741d0a.css.map": "/personal_site/static/css/main.45741d0a.css.map",
+    "main.cebd7bea.css.map": "/personal_site/static/css/main.cebd7bea.css.map",
     "main.b21dcb57.js.map": "/personal_site/static/js/main.b21dcb57.js.map",
     "453.96cba20d.chunk.js.map": "/personal_site/static/js/453.96cba20d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.45741d0a.css",
+    "static/css/main.cebd7bea.css",
     "static/js/main.b21dcb57.js"
   ]
 }
