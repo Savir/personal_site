@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import "../styles/AreaStyles.css"; // Ensure CSS is updated for animations
 import "../styles/PublicArea.css";
 import {bioParagraphs, words} from "./bio";
+import {gLogEvent} from "../utils/analytics";
 
 
 const PublicArea = () => {
@@ -60,7 +61,10 @@ const PublicArea = () => {
                 </div>
             </div>
 
-            <button className="primary-button" onClick={() => setExpanded(!expanded)}>
+            <button className="primary-button" onClick={() => {
+                setExpanded(!expanded);
+                gLogEvent(expanded ? 'show_less_clicked' : 'read_more_clicked')
+            }}>
                 {expanded ? "Show less" : "Read more"}
             </button>
 

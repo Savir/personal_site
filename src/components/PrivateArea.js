@@ -5,6 +5,7 @@ import {decryptContent} from "../utils/decryptor";
 import encryptedContent from "../encryptedContent";
 import "../styles/AreaStyles.css"; // Import the unified styles
 import "../styles/PrivateArea.css"
+import {gLogEvent} from "../utils/analytics";
 
 const PrivateArea = () => {
     const [secretKey, setSecretKey] = useState("");
@@ -23,6 +24,7 @@ const PrivateArea = () => {
         setErrorMessage("");
         try {
             const decryptedText = await decryptContent(encryptedContent, key);
+            gLogEvent('decryption_success');
             setHasAccess(true);
             setDecryptedComponent(() => evaluateJSX(decryptedText));
 
@@ -30,7 +32,7 @@ const PrivateArea = () => {
                 updateURL(key);
             }
         } catch (error) {
-            console.error(error.message);
+            gLogEvent('decryption_failed');
             setErrorMessage("❌ Incorrect key or decryption failed.");
             setHasAccess(false);
             setDecryptedComponent(null);

@@ -2,6 +2,9 @@
 
 # Define backup folder and ensure it exists
 BACKUP_DIR="backups/"
+
+# Start doing things (no more variable definition)
+BACKUP_DIR="${BACKUP_DIR%/}"  # Remove trailing slash if needed
 if [[ ! -d "$BACKUP_DIR" ]]; then
     echo "❌Backup dir $BACKUP_DIR not found."
     exit 1
