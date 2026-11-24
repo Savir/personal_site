@@ -139,3 +139,94 @@
     font-size: 1.5rem;
     color: inherit;
 }
+
+.sct-section {
+    margin-top: 2rem;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.sct-section h2 {
+    font-size: 1.25rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin: 0 0 1rem;
+}
+
+.sct-entry {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.sct-entry:last-child {
+    border-bottom: 0;
+}
+
+.sct-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+}
+
+.sct-entry h3 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.sct-date, .sct-description {
+    color: #666;
+}
+
+.sct-description {
+    margin: 0.35rem 0 0.75rem;
+    font-style: italic;
+}
+
+.sct-position {
+    font-weight: 600;
+    margin-top: 0.25rem;
+}
+
+.sct-details {
+    margin-top: 0.75rem;
+}
+
+.sct-details summary {
+    cursor: pointer;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+.sct-section ul {
+    padding-left: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.sct-section li {
+    margin-bottom: 0.4rem;
+}
+
+.sct-section .sct-date {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .sct-wrapper {
+        padding: 1rem 0;
+    }
+
+    .sct-section .sct-entry-header {
+        display: block;
+    }
+
+    .sct-section .sct-date {
+        display: block;
+        margin-top: 0.25rem;
+    }
+
+    .sct-section {
+        overflow-wrap: anywhere;
+    }
+}
